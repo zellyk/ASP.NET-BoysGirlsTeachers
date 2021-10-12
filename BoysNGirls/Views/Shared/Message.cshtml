@@ -1,0 +1,21 @@
+﻿@*Generic layour used by the Boys, Girls, and Teacher areas to avoid code repeating (DRY methodology and whatnot)*@
+@{
+    Layout = "_Layout";
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Message</h1>
+    @* Display every Task in ViewBag.Tasks *@
+    @foreach (var task in ViewBag.Tasks)
+    {
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">@task.Code</h2>
+            <p class="card-text">@task.Description</p>
+            <p class="card-text">@task.Location</p>
+        </div>
+    </div>
+    }
+
+</div>
+@* Can be replaced with ignore body really, either one will work (for now at least) since we don't add much to this layout when using it *@
+@RenderBody()
